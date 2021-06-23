@@ -6,23 +6,23 @@ import io.appium.java_client.MobileDriver;
 import io.appium.java_client.MobileElement;
 import utils.MobileElementActions;
 
-public class CountryScreen {
+public class CountryScreen_Native {
 	private MobileDriver<MobileElement> mobile;
 
 	private String profileIconExperssion = "(//*[@index='%d'])";
 	private String languageSelection = "//*[contains(@text, '%s')]//parent::*";
 
-	public CountryScreen(MobileDriver<MobileElement> mobile) {
+	public CountryScreen_Native(MobileDriver<MobileElement> mobile) {
 		this.mobile = mobile;
 	}
 
-	public CountryScreen clickOnCountry(int index) {
+	public CountryScreen_Native clickOnCountry(int index) {
 		MobileElementActions.click(mobile, By.xpath(String.format(profileIconExperssion, index)));
 		return this;
 	}
 
-	public Home clickOnLanguage(String language) {
+	public Home_Native clickOnLanguage(String language) {
 		MobileElementActions.click(mobile, By.xpath(String.format(languageSelection, language)));
-		return new Home(mobile);
+		return new Home_Native(mobile);
 	}
 }

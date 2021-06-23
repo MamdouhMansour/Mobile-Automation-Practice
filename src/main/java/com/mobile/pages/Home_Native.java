@@ -7,7 +7,7 @@ import io.appium.java_client.MobileDriver;
 import io.appium.java_client.MobileElement;
 import utils.MobileElementActions;
 
-public class Home {
+public class Home_Native {
 	private By dismiss_alert = By.id("android:id/button3");
 	private String navigation_link = "com.jumia.android:id/navigation_%s";
 
@@ -17,11 +17,11 @@ public class Home {
 
 	private MobileDriver<MobileElement> mobile;
 
-	public Home(MobileDriver<MobileElement> mobile) {
+	public Home_Native(MobileDriver<MobileElement> mobile) {
 		this.mobile = mobile;
 	}
 
-	public Home dismissAlert() {
+	public Home_Native dismissAlert() {
 		MobileElementActions.click(mobile, dismiss_alert);
 		return this;
 	}
@@ -31,18 +31,8 @@ public class Home {
 		MobileElementActions.click(mobile, MobileBy.id(String.format(navigation_link, navigationLink)));
 	}
 
-	public Account clickOnAccount() {
+	public Account_Native clickOnAccount() {
 		clickOnNavigationMenuLinks(account);
-		return new Account(mobile);
-	}
-
-	public Home clickOnCategories() {
-		clickOnNavigationMenuLinks(categories);
-		return this;
-	}
-
-	public Home clickOnHome() {
-		clickOnNavigationMenuLinks(home);
-		return this;
+		return new Account_Native(mobile);
 	}
 }

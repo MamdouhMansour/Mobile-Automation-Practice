@@ -7,7 +7,7 @@ import io.appium.java_client.MobileDriver;
 import io.appium.java_client.MobileElement;
 import utils.MobileElementActions;
 
-public class SignUp {
+public class SignUp_Native {
 
 	private MobileDriver<MobileElement> mobile;
 
@@ -17,14 +17,15 @@ public class SignUp {
 	private By password_field = MobileBy.AccessibilityId("password");
 	private By terms = MobileBy.AccessibilityId("terms");
 	private By login_button = MobileBy.id("com.jumia.android:id/login_button_continue");
-
 	private By male_checkbox = MobileBy.xpath("//*[@text='Male']");
 
-	public SignUp(MobileDriver<MobileElement> mobile) {
+	public static By dismissAdBtn = MobileBy.id("com_ad4screen_sdk_popup_secondary_button");
+
+	public SignUp_Native(MobileDriver<MobileElement> mobile) {
 		this.mobile = mobile;
 	}
 
-	public SignUp fillRegistrationForm(String firstName, String lastName, String emailAddress, String password) {
+	public SignUp_Native fillRegistrationForm(String firstName, String lastName, String emailAddress, String password) {
 		MobileElementActions.type(mobile, first_name, firstName);
 		MobileElementActions.type(mobile, last_name, lastName);
 		MobileElementActions.type(mobile, email_field, emailAddress);
@@ -33,6 +34,10 @@ public class SignUp {
 		MobileElementActions.click(mobile, terms);
 		MobileElementActions.click(mobile, login_button);
 		return this;
+	}
+
+	public void dismissAd() {
+		new Home_Native(mobile).dismissAlert();
 	}
 
 }
