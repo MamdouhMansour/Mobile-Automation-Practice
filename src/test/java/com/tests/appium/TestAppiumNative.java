@@ -19,7 +19,7 @@ public class TestAppiumNative {
 	private MobileDriver<MobileElement> mobile;
 
 	private String englishLanguage = "English";
-	private String email = "testA5QA@tes.com";
+	private String email = "testA7QA@tes.com";
 	private String password = "Aa12345#";
 	private int countryIndex = 2;
 	private String emaulatorUDID = "emulator-5554";
@@ -35,17 +35,22 @@ public class TestAppiumNative {
 
 	@Test(dependsOnMethods = { "checkSuccessfulRegistration" })
 	public void checkSuccessfulLogin() {
-		new CountryScreen_Native(mobile).clickOnCountry(countryIndex).clickOnLanguage(englishLanguage).dismissAlert()
-				.clickOnAccount().clickOnLogin().loginUser(email, password);
+		new CountryScreen_Native(mobile)
+		.clickOnCountry(countryIndex)
+		.clickOnLanguage(englishLanguage)
+		.dismissAlert()
+		.clickOnAccount()
+		.clickOnLogin()
+		.loginUser(email, password);
 
 		Assert.assertEquals(new Account_Native(mobile).getAccountEmail(), email);
 	}
 
 	@BeforeMethod
 	public void beforeMethod() throws MalformedURLException {
-		MobileActions.SetCapabilities(emaulatorUDID, "Test Mobile", "8.1", "Android", "com.jumia.android",
-				"com.mobile.view.SplashScreenActivity", "D:\\Tutorials\\Appium tutorials\\jumia-7-5-1.apk");
 		mobile = MobileActions.InitiateMobileDriver(mobile, MobileDriverType.ANDROID);
+		MobileActions.SetCapabilities(emaulatorUDID, "Test Mobile", "8.1", "Android", "com.jumia.android",
+				"com.mobile.view.SplashScreenActivity", "src/test/resources/jumia-7-5-1.apk");
 	}
 
 	@AfterMethod

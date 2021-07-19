@@ -19,7 +19,6 @@ public class MobileElementActions {
         locatingElementStrategy(mobile, elementLocator);
         mobile.findElement(elementLocator).click();
         return new MobileElementActions(mobile);
-
     }
 
     public static MobileElementActions type(MobileDriver<MobileElement> mobile, By elementLocator, String text) {
