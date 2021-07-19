@@ -46,10 +46,6 @@ public class MobileElementActions {
         // Check if element is visible
         Helper.getExplicitWait(mobile).until(ExpectedConditions.visibilityOfElementLocated(elementLocator));
 
-        // scroll into view for the element to handle special cases of some browser
-//		((JavascriptExecutor) mobile).executeScript("arguments[0].scrollIntoView(false);",
-//				mobile.findElement(elementLocator));
-
         // check if the element is displayed
         mobile.findElement(elementLocator).isDisplayed();
     }
