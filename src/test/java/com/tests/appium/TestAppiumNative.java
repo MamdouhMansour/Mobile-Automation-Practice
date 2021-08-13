@@ -25,7 +25,7 @@ public class TestAppiumNative {
 	private String emaulatorUDID = "emulator-5554";
 
 	@Test
-	public void checkSuccessfulRegistration() {
+	public void checkSuccessRegistration() {
 		new CountryScreen_Native(mobile).clickOnCountry(countryIndex).clickOnLanguage(englishLanguage).dismissAlert()
 				.clickOnAccount().clickOnLogin().clickOnCreateNewAccount()
 				.fillRegistrationForm("Test1", "Test1", email, password);
