@@ -14,7 +14,7 @@ jobs:
     runs-on: macos-latest
     strategy:
       matrix:
-        api-level: [25]  
+        api-level: [30]  
         target: [default]
     steps:
     - uses: actions/checkout@v2
@@ -24,7 +24,7 @@ jobs:
         java-version: 1.8
     - uses: actions/setup-node@v2
       with:
-       node-version: '12'
+       node-version: '14'
     - run: |
             npm install -g appium@v1.20.2
             appium -v
@@ -36,4 +36,4 @@ jobs:
         target: ${{ matrix.target }}
         arch: x86_64
         profile: Nexus 6
-        script: mvn clean install -Pandroid
+        script: mvn clean install
